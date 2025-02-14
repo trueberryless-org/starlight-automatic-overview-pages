@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starlight-automatic-overview-pages
+  namespace: starlight-automatic-overview-pages
+  labels:
+    app: starlight-automatic-overview-pages
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: starlight-automatic-overview-pages
+  template:
+    metadata:
+      labels:
+        app: starlight-automatic-overview-pages
+    spec:
+      containers:
+        - name: starlight-automatic-overview-pages
+          image: "trueberryless/starlight-automatic-overview-pages"
+          imagePullPolicy: Always

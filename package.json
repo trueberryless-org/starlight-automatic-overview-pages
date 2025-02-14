@@ -1,19 +1,28 @@
 {
   "name": "starlight-automatic-overview-pages-monorepo",
   "version": "0.0.1",
-  "license": "MIT",
-  "description": "Insert new routes or append content to index.mdx pages in every folder so that users can get an overview.",
-  "author": "trueberryless-org",
-  "type": "module",
-  "engines": {
-    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
-  },
-  "packageManager": "pnpm@9.6.0",
   "private": true,
+  "description": "Insert new routes or append content to index.mdx pages in every folder so that users can get an overview.",
   "homepage": "https://github.com/trueberryless-org/starlight-automatic-overview-pages",
+  "bugs": {
+    "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages.git"
   },
-  "bugs": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues"
+  "license": "MIT",
+  "author": "trueberryless <trueberryless@gmail.com> (https://trueberryless.org)",
+  "type": "module",
+  "scripts": {
+    "version": "pnpm changeset version && pnpm i --no-frozen-lockfile"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.11"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  }
 }
