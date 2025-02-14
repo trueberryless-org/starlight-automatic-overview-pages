@@ -10,6 +10,6 @@ Check out the `starlight-automatic-overview-pages` getting started guide.
 
 ## License
 
-Licensed under the MIT License, Copyright © trueberryless-org.
+Licensed under the MIT license, Copyright © trueberryless.
 
-See [LICENSE](https://github.com/trueberryless-org/starlight-automatic-overview-pages/blob/main/LICENSE) for more information.
+See [LICENSE](/LICENSE) for more information.
