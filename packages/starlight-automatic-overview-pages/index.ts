@@ -1,8 +1,8 @@
-import type { StarlightPlugin } from '@astrojs/starlight/types'
+import type { StarlightPlugin } from "@astrojs/starlight/types";
 
 export default function starlightAutomaticOverviewPages(): StarlightPlugin {
   return {
-    name: 'starlight-automatic-overview-pages',
+    name: "starlight-automatic-overview-pages",
     hooks: {
       setup({ logger }) {
         /**
@@ -14,8 +14,10 @@ export default function starlightAutomaticOverviewPages(): StarlightPlugin {
          *
          * @see https://starlight.astro.build/reference/plugins/
          */
-        logger.info('Hello from the starlight-automatic-overview-pages plugin!')
+        logger.info(
+          "Hello from the starlight-automatic-overview-pages plugin!"
+        );
       },
     },
-  }
+  };
 }

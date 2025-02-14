@@ -6,7 +6,8 @@ export default defineConfig({
   integrations: [
     starlight({
       editLink: {
-        baseUrl: "https://github.com/trueberryless-org/starlight-automatic-overview-pages/edit/main/docs/",
+        baseUrl:
+          "https://github.com/trueberryless-org/starlight-automatic-overview-pages/edit/main/docs/",
       },
       plugins: [starlightAutomaticOverviewPages()],
       sidebar: [
@@ -22,7 +23,8 @@ export default defineConfig({
         },
       ],
       social: {
-        github: "https://github.com/trueberryless-org/starlight-automatic-overview-pages",
+        github:
+          "https://github.com/trueberryless-org/starlight-automatic-overview-pages",
       },
       title: "Starlight Automatic Overview Pages",
     }),
