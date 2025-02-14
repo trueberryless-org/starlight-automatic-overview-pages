@@ -1,0 +1,19 @@
+{
+  "name": "starlight-automatic-overview-pages-monorepo",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Insert new routes or append content to index.mdx pages in every folder so that users can get an overview.",
+  "author": "trueberryless-org",
+  "type": "module",
+  "engines": {
+    "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
+  },
+  "packageManager": "pnpm@9.6.0",
+  "private": true,
+  "homepage": "https://github.com/trueberryless-org/starlight-automatic-overview-pages",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages.git"
+  },
+  "bugs": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues"
+}
