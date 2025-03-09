@@ -1,0 +1,99 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import { render, type CollectionEntry } from "astro:content";
+
+interface Props {
+  entry: CollectionEntry<"docs">;
+}
+
+const { entry } = Astro.props;
+const { headings, remarkPluginFrontmatter } = await render(entry);
+
+const { hasSidebar } = remarkPluginFrontmatter;
+
+let darkImage: ImageMetadata | undefined;
+let lightImage: ImageMetadata | undefined;
+let rawImageHtml: string | undefined;
+const image = entry.data.hero?.image;
+
+if (image) {
+  if ("file" in image) {
+    darkImage = image.file;
+  } else if ("dark" in image) {
+    darkImage = image.dark;
+    lightImage = image.light;
+  } else {
+    rawImageHtml = image.html;
+  }
+}
+---
+
+{
+  !darkImage && !lightImage && !rawImageHtml && (
+    <StarlightPage
+      frontmatter={remarkPluginFrontmatter}
+      headings={headings}
+      hasSidebar={hasSidebar}
+    >
+      <slot />
+    </StarlightPage>
+  )
+}
+{
+  darkImage && lightImage && (
+    <StarlightPage
+      frontmatter={{
+        ...(remarkPluginFrontmatter as any),
+        hero: {
+          ...remarkPluginFrontmatter.hero,
+          image: {
+            dark: darkImage,
+            light: lightImage,
+          },
+        },
+      }}
+      headings={headings}
+      hasSidebar={hasSidebar}
+    >
+      <slot />
+    </StarlightPage>
+  )
+}
+{
+  darkImage && !lightImage && (
+    <StarlightPage
+      frontmatter={{
+        ...(remarkPluginFrontmatter as any),
+        hero: {
+          ...remarkPluginFrontmatter.hero,
+          image: {
+            file: darkImage,
+          },
+        },
+      }}
+      headings={headings}
+      hasSidebar={hasSidebar}
+    >
+      <slot />
+    </StarlightPage>
+  )
+}
+{
+  rawImageHtml && (
+    <StarlightPage
+      frontmatter={{
+        ...(remarkPluginFrontmatter as any),
+        hero: {
+          ...remarkPluginFrontmatter.hero,
+          image: {
+            html: rawImageHtml,
+          },
+        },
+      }}
+      headings={headings}
+      hasSidebar={hasSidebar}
+    >
+      <slot />
+    </StarlightPage>
+  )
+}

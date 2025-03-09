@@ -6,14 +6,16 @@
   "author": "trueberryless-org",
   "type": "module",
   "exports": {
-    ".": "./index.ts"
+    ".": "./index.ts",
+    "./routes/Overview.astro": "./routes/Overview.astro",
+    "./package.json": "./package.json"
   },
   "devDependencies": {
-    "@astrojs/starlight": "^0.31.1",
-    "astro": "^5.3.0"
+    "@astrojs/starlight": "^0.32.2",
+    "astro": "^5.4.2"
   },
   "peerDependencies": {
-    "@astrojs/starlight": ">=0.31"
+    "@astrojs/starlight": ">=0.32"
   },
   "engines": {
     "node": "^18.17.1 || ^20.3.0 || >=21.0.0"
@@ -27,5 +29,8 @@
     "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages.git",
     "directory": "packages/starlight-automatic-overview-pages"
   },
-  "bugs": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues"
+  "bugs": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues",
+  "dependencies": {
+    "title-case": "^4.3.2"
+  }
 }

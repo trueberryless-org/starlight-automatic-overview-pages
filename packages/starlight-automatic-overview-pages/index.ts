@@ -1,22 +1,49 @@
 import type { StarlightPlugin } from "@astrojs/starlight/types";
+import {
+  type StarlightAutomaticOverviewPagesConfig,
+  validateConfig,
+  type StarlightAutomaticOverviewPagesUserConfig,
+} from "./libs/config";
+import { vitePluginStarlightAutomaticOverviewPagesConfig } from "./libs/vite";
+import { Translations } from "./translations";
 
-export default function starlightAutomaticOverviewPages(): StarlightPlugin {
+export type {
+  StarlightAutomaticOverviewPagesConfig,
+  StarlightAutomaticOverviewPagesUserConfig,
+};
+
+export default function starlightAutomaticOverviewPages(
+  userConfig?: StarlightAutomaticOverviewPagesUserConfig
+): StarlightPlugin {
   return {
     name: "starlight-automatic-overview-pages",
     hooks: {
-      setup({ logger }) {
-        /**
-         * This is the entry point of your Starlight plugin.
-         * The `setup` hook is called when Starlight is initialized (during the Astro `astro:config:setup` integration
-         * hook).
-         * To learn more about the Starlight plugin API and all available options in this hook, check the Starlight
-         * plugins reference.
-         *
-         * @see https://starlight.astro.build/reference/plugins/
-         */
-        logger.info(
-          "Hello from the starlight-automatic-overview-pages plugin!"
-        );
+      "i18n:setup"({ injectTranslations }) {
+        injectTranslations(Translations);
+      },
+      "config:setup"({ logger, addIntegration }) {
+        const config = validateConfig(userConfig);
+
+        addIntegration({
+          name: "starlight-automatic-overview-pages-integration",
+          hooks: {
+            "astro:config:setup": ({ injectRoute, updateConfig }) => {
+              injectRoute({
+                entrypoint: `starlight-automatic-overview-pages/routes/Overview.astro`,
+                pattern: "[...locale]/[...path]",
+                prerender: true,
+              });
+
+              updateConfig({
+                vite: {
+                  plugins: [
+                    vitePluginStarlightAutomaticOverviewPagesConfig(config),
+                  ],
+                },
+              });
+            },
+          },
+        });
       },
     },
   };
