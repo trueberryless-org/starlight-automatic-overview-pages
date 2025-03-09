@@ -3,8 +3,9 @@ import {
   type StarlightAutomaticOverviewPagesConfig,
   validateConfig,
   type StarlightAutomaticOverviewPagesUserConfig,
-} from "./lib/config";
-import { vitePluginStarlightAutomaticOverviewPagesConfig } from "./lib/vite";
+} from "./libs/config";
+import { vitePluginStarlightAutomaticOverviewPagesConfig } from "./libs/vite";
+import { Translations } from "./translations";
 
 export type {
   StarlightAutomaticOverviewPagesConfig,
@@ -17,13 +18,22 @@ export default function starlightAutomaticOverviewPages(
   return {
     name: "starlight-automatic-overview-pages",
     hooks: {
-      setup({ logger, addIntegration }) {
+      "i18n:setup"({ injectTranslations }) {
+        injectTranslations(Translations);
+      },
+      "config:setup"({ logger, addIntegration }) {
         const config = validateConfig(userConfig);
 
         addIntegration({
           name: "starlight-automatic-overview-pages-integration",
           hooks: {
-            "astro:config:setup": ({ updateConfig }) => {
+            "astro:config:setup": ({ injectRoute, updateConfig }) => {
+              injectRoute({
+                entrypoint: `starlight-automatic-overview-pages/routes/Overview.astro`,
+                pattern: "[...locale]/[...path]",
+                prerender: true,
+              });
+
               updateConfig({
                 vite: {
                   plugins: [

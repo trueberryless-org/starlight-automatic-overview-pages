@@ -1,0 +1,49 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { render } from "astro:content";
+import { getStaticOverviewPaths } from '../libs/staticPaths';
+import { getPageProps } from '../libs/page';
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import RenderStarlightPage from "../components/RenderStarlightPage.astro";
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+export const getStaticPaths = (async () => {
+  return await getStaticOverviewPaths();
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { id, entries, entry }: Props = Astro.props;
+
+const pageProps = getPageProps(id);
+---
+
+{
+  entry && (
+    <>
+      {render(entry).then(({ Content }) => (
+        <RenderStarlightPage entry={entry}>
+          <Content />
+          <h2>{Astro.locals.t('starlightAutomaticOverviewPages.overview.itemHeading')}</h2>
+          <p>{Astro.locals.t('starlightAutomaticOverviewPages.overview.itemDescription', {count: entries.length})}</p>
+          <CardGrid>
+            {entries.map((entry: any) => 
+              <LinkCard title={entry.data.title} href={entry.id} description={entry.data.description} />
+            )}
+          </CardGrid>
+        </RenderStarlightPage>
+      ))}
+    </>
+  )
+}
+
+
+<StarlightPage {...pageProps}>
+  <h2>{Astro.locals.t('starlightAutomaticOverviewPages.overview.itemHeading')}</h2>
+  <p>{Astro.locals.t('starlightAutomaticOverviewPages.overview.itemDescription', {count: entries.length})}</p>
+  <CardGrid>
+    {entries.map((entry: any) => 
+      <LinkCard title={entry.data.title} href={entry.id} description={entry.data.description} />
+    )}
+  </CardGrid>
+</StarlightPage>

@@ -2,7 +2,7 @@
 import { AstroError } from "astro/errors";
 import { z } from "astro/zod";
 
-export const configSchema = z.object({});
+export const configSchema = z.object({}).default({});
 
 export function validateConfig(
   userConfig: unknown
@@ -13,7 +13,7 @@ export function validateConfig(
     const errors = config.error.flatten();
 
     throw new AstroError(
-      `Invalid @trueberryless-org/starlight-plugins-docs-components configuration:
+      `Invalid starlight-automatic-overview-pages configuration:
       
       ${errors.formErrors.map((formError) => ` - ${formError}`).join("\n")}
       ${Object.entries(errors.fieldErrors)
@@ -23,7 +23,7 @@ export function validateConfig(
         )
         .join("\n")}
         `,
-      `See the error report above for more informations.\n\nIf you believe this is a bug, please file an issue at https://github.com/trueberryless-org/starlight-plugins-docs-components/issues/new`
+      `See the error report above for more informations.\n\nIf you believe this is a bug, please file an issue at https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues/new`
     );
   }
 
