@@ -6,19 +6,24 @@ on:
 permissions:
   contents: read
 
+env:
+  NODE_VERSION: 24.10.0
+
 jobs:
   autofix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          persist-credentials: false
 
       - name: Setup PNPM
-        uses: pnpm/action-setup@v3
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
         with:
-          node-version: 20
+          node-version: ${{ env.NODE_VERSION }}
           cache: "pnpm"
 
       - name: Install Dependencies
@@ -32,6 +37,6 @@ jobs:
       - name: Run pngquant
         run: |
           shopt -s globstar
-          find . -name '*.png' -exec pngquant --ext .png --force 256 {} \;
+          find . -name '*.png' -exec pngquant --ext .png 256 {} \;
 
-      - uses: autofix-ci/action@ff86a557419858bb967097bfc916833f5647fa8c
+      - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
