@@ -1,9 +1,18 @@
 {
   "name": "starlight-automatic-overview-pages",
   "version": "0.0.1",
-  "license": "MIT",
   "description": "Insert new routes or append content to index.mdx pages in every folder so that users can get an overview.",
-  "author": "trueberryless-org",
+  "homepage": "https://starlight-automatic-overview-pages.trueberryless.org",
+  "bugs": {
+    "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages.git",
+    "directory": "packages/starlight-automatic-overview-pages"
+  },
+  "license": "MIT",
+  "author": "trueberryless <trueberryless@gmail.com> (https://trueberryless.org)",
   "type": "module",
   "exports": {
     ".": "./index.ts"
@@ -20,12 +29,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "homepage": "https://github.com/trueberryless-org/starlight-automatic-overview-pages",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages.git",
-    "directory": "packages/starlight-automatic-overview-pages"
-  },
-  "bugs": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues"
+  }
 }
