@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "description": "Insert new routes or append content to index.mdx pages in every folder so that users can get an overview.",
-  "homepage": "https://starlight-automatic-overview-pages.trueberryless.org",
+  "homepage": "https://starlight-automatic-overview-pages.netlify.app/",
   "bugs": {
     "url": "https://github.com/trueberryless-org/starlight-automatic-overview-pages/issues"
   },
@@ -13,7 +13,7 @@
     "directory": "docs"
   },
   "license": "MIT",
-  "author": "trueberryless <trueberryless@gmail.com> (https://trueberryless.org)",
+  "author": "trueberryless <trueberryless@gmail.com> (https://felixs.dev)",
   "type": "module",
   "scripts": {
     "astro": "astro",
