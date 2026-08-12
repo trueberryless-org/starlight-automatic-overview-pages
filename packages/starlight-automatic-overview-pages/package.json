@@ -18,7 +18,7 @@
     ".": "./index.ts"
   },
   "devDependencies": {
-    "@astrojs/starlight": "^0.41.3",
+    "@astrojs/starlight": "^0.41.4",
     "astro": "^5.3.0"
   },
   "peerDependencies": {
