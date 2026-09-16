@@ -33,7 +33,7 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0(@types/node@24.13.3)(rollup@4.34.7)(typescript@5.7.3)
       sharp:
-        specifier: ^0.35.3
+        specifier: ^0.35.4
         version: 0.35.4(@types/node@24.13.3)
       starlight-automatic-overview-pages:
         specifier: workspace:*
@@ -5381,7 +5381,7 @@ snapshots:
     dependencies:
       color: 4.2.3
       detect-libc: 2.1.2
-      semver: 7.7.1
+      semver: 7.8.5
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.5
       '@img/sharp-darwin-x64': 0.33.5
