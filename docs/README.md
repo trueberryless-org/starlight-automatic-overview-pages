@@ -13,10 +13,10 @@ pnpm run dev
 The demo is also built with the `sidebarLink: "label"` option and served at `/label/`.
 Run this variant locally with `pnpm run dev:label`.
 
-Content can be found in the [`src/content/docs/`](https://github.com/trueberryless-org/starlight-group-pages/tree/main/docs/src/content/docs) directory.
+Content can be found in the [`src/content/docs/`](https://github.com/trueberryless/starlight-group-pages/tree/main/docs/src/content/docs) directory.
 
 ## License
 
 Licensed under the MIT License, Copyright © trueberryless.
 
-See [LICENSE](https://github.com/trueberryless-org/starlight-group-pages/blob/main/LICENSE) for more information.
+See [LICENSE](https://github.com/trueberryless/starlight-group-pages/blob/main/LICENSE) for more information.

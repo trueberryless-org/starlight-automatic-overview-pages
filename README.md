@@ -10,7 +10,7 @@ Read the [Starlight Group Pages docs](https://starlight-group-pages.netlify.app)
 
 ## Package
 
-If you are looking for the Starlight plugin package, you can find it in the [`packages/starlight-group-pages/`](https://github.com/trueberryless-org/starlight-group-pages/tree/main/packages/starlight-group-pages) directory.
+If you are looking for the Starlight plugin package, you can find it in the [`packages/starlight-group-pages/`](https://github.com/trueberryless/starlight-group-pages/tree/main/packages/starlight-group-pages) directory.
 
 ## Project structure
 
@@ -20,4 +20,4 @@ This project uses pnpm workspaces to develop a single Starlight plugin from the 
 
 Licensed under the MIT License, Copyright © trueberryless.
 
-See [LICENSE](https://github.com/trueberryless-org/starlight-group-pages/blob/main/LICENSE) for more information.
+See [LICENSE](https://github.com/trueberryless/starlight-group-pages/blob/main/LICENSE) for more information.

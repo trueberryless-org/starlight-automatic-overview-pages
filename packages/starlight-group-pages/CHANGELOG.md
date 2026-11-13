@@ -1,5 +1,11 @@
 # starlight-group-pages
 
+## 0.2.1
+
+### Patch Changes
+
+- [#53](https://github.com/trueberryless/starlight-group-pages/pull/53) [`8b9b56e`](https://github.com/trueberryless/starlight-group-pages/commit/8b9b56ec1de5a72a0363191f02705116e0143920) Thanks [@trueberryless-bot](https://github.com/trueberryless-bot)! - Updates the repository links after the move from the `trueberryless-org` GitHub organization to the `trueberryless` account.
+
 ## 0.2.0
 
 ### Minor Changes

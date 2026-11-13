@@ -474,10 +474,10 @@ describe("sidebar-label", () => {
     const html = readFixtureOutput("sidebar-label", "guides/index.html");
 
     expect(html).toMatch(
-      /<a href="\/guides\/" aria-current="page" class="sl-group-pages-link[^"]*">/
+      /<a href="\/guides\/" aria-current="page" class="sl-group-pages-link[^"]*"[^>]*>/
     );
     expect(html).toMatch(
-      /<summary[^>]*><span class="sr-only[^"]*">Guides<\/span>/
+      /<summary[^>]*><span class="sr-only[^"]*"[^>]*>Guides<\/span>/
     );
   });
 
