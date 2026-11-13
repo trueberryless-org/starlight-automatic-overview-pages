@@ -47,7 +47,7 @@
     "picomatch": "^4.0.7"
   },
   "devDependencies": {
-    "@astrojs/starlight": "^0.42.4",
+    "@astrojs/starlight": "^0.43.0",
     "@types/picomatch": "^4.0.3",
     "astro": "^7.3.5",
     "vitest": "^5.0.2"
