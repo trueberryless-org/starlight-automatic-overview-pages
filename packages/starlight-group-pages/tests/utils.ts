@@ -102,7 +102,7 @@ export function getOverviewCards(html: string) {
 
   return [
     ...content.matchAll(
-      /<h(\d) id="([^"]*)">\s*([^<]*?)\s*<\/h\d>|<a href="([^"]*)"[^>]*><span class="title[^"]*">([^<]*)<\/span><\/a>(?:<\/span>)?(?:<span class="description[^"]*">([^<]*)<\/span>)?/g
+      /<h(\d) id="([^"]*)"[^>]*>\s*([^<]*?)\s*<\/h\d>|<a href="([^"]*)"[^>]*><span class="title[^"]*"[^>]*>([^<]*)<\/span><\/a>(?:<\/span>)?(?:<span class="description[^"]*"[^>]*>([^<]*)<\/span>)?/g
     ),
   ].map(([, level, id, heading, href, title, description]) =>
     level ? { heading, id, level: Number(level) } : { description, href, title }
